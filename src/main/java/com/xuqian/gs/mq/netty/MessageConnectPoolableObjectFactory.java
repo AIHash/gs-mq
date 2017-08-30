@@ -1,5 +1,7 @@
 package com.xuqian.gs.mq.netty;
 
+import org.apache.commons.pool.PoolableObjectFactory;
+
 public class MessageConnectPoolableObjectFactory implements PoolableObjectFactory<MessageConnectFactory> {
 
     private String serverAddress;

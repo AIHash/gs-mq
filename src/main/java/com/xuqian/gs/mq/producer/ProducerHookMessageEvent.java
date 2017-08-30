@@ -1,6 +1,5 @@
 package com.xuqian.gs.mq.producer;
 
-
 import com.xuqian.gs.mq.core.HookMessageEvent;
 
 public class ProducerHookMessageEvent extends HookMessageEvent<String> {

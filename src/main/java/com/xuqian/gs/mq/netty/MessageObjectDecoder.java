@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class MessageObjectDecoder extends ByteToMessageDecoder {
 
     final public static int MESSAGE_LENGTH = MessageCodecUtil.MESSAGE_LENGTH;

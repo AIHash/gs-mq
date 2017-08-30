@@ -1,6 +1,4 @@
-
 package com.xuqian.gs.mq.model;
-
 
 public enum MessageSource {
 

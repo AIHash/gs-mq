@@ -1,9 +1,7 @@
-
 package com.xuqian.gs.mq.model;
 
 import io.netty.channel.Channel;
 import org.apache.commons.lang3.builder.EqualsBuilder;
-
 
 public class RemoteChannelData {
 

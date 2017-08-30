@@ -1,18 +1,12 @@
-
 package com.xuqian.gs.mq.broker.server;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import java.io.IOException;
-import java.util.concurrent.ThreadFactory;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.xuqian.gs.mq.broker.ConsumerMessageHook;
 import com.xuqian.gs.mq.broker.MessageBrokerHandler;
 import com.xuqian.gs.mq.broker.ProducerMessageHook;
 import com.xuqian.gs.mq.core.MessageSystemConfig;
+import com.xuqian.gs.mq.netty.MessageObjectDecoder;
+import com.xuqian.gs.mq.netty.MessageObjectEncoder;
 import com.xuqian.gs.mq.netty.NettyClustersConfig;
 import com.xuqian.gs.mq.netty.NettyUtil;
 import com.xuqian.gs.mq.serialize.KryoCodecUtil;
@@ -29,6 +23,12 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 
+import java.io.IOException;
+import java.util.concurrent.ThreadFactory;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AvatarMQBrokerServer extends BrokerParallelServer implements RemotingServer {
 

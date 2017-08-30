@@ -1,4 +1,3 @@
-
 package com.xuqian.gs.mq.msg;
 
 import java.io.Serializable;

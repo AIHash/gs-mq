@@ -1,4 +1,3 @@
-
 package com.xuqian.gs.mq.msg;
 
 import java.io.Serializable;
@@ -6,7 +5,6 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
 
 public class Message extends BaseMessage implements Serializable {
 

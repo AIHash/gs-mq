@@ -1,6 +1,5 @@
 package com.xuqian.gs.mq.broker.strategy;
 
-
 import com.xuqian.gs.mq.broker.ConsumerMessageListener;
 import com.xuqian.gs.mq.broker.ProducerMessageListener;
 import com.xuqian.gs.mq.broker.SendMessageLauncher;

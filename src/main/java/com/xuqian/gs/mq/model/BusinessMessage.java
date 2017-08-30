@@ -1,10 +1,8 @@
-
 package com.xuqian.gs.mq.model;
 
 import com.xuqian.gs.mq.msg.BaseMessage;
 
 import java.io.Serializable;
-
 
 public abstract class BusinessMessage implements Serializable {
 

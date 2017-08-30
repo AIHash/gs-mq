@@ -1,8 +1,6 @@
-
 package com.xuqian.gs.mq.msg;
 
 import java.io.Serializable;
-
 
 public class ProducerAckMessage extends BaseMessage implements Serializable {
 

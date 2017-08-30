@@ -1,9 +1,9 @@
 package com.xuqian.gs.mq;
 
-import com.xuqian.gs.mq.spring.GsMQContainer;
+import com.xuqian.gs.mq.spring.AvatarMQContainer;
 
 public class App {
     public static void main(String[] args) {
-        new GsMQContainer().start();
+        new AvatarMQContainer().start();
     }
 }

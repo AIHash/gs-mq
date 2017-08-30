@@ -1,37 +1,15 @@
-/**
- * Copyright (C) 2016 Newland Group Holding Limited
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.xuqian.gs.mq.consumer;
 
 import com.google.common.base.Joiner;
-import com.newlandframework.avatarmq.core.AvatarMQAction;
-import com.newlandframework.avatarmq.core.MessageIdGenerator;
-import com.newlandframework.avatarmq.core.MessageSystemConfig;
-import com.newlandframework.avatarmq.model.MessageType;
-import com.newlandframework.avatarmq.model.RequestMessage;
-import com.newlandframework.avatarmq.msg.SubscribeMessage;
-import com.newlandframework.avatarmq.msg.UnSubscribeMessage;
-import com.newlandframework.avatarmq.netty.MessageProcessor;
+import com.xuqian.gs.mq.core.AvatarMQAction;
+import com.xuqian.gs.mq.core.MessageIdGenerator;
+import com.xuqian.gs.mq.core.MessageSystemConfig;
+import com.xuqian.gs.mq.model.MessageType;
+import com.xuqian.gs.mq.model.RequestMessage;
+import com.xuqian.gs.mq.msg.SubscribeMessage;
+import com.xuqian.gs.mq.msg.UnSubscribeMessage;
+import com.xuqian.gs.mq.netty.MessageProcessor;
 
-/**
- * @filename:AvatarMQConsumer.java
- * @description:AvatarMQConsumer功能模块
- * @author tangjie<https://github.com/tang-jie>
- * @blog http://www.cnblogs.com/jietang/
- * @since 2016-8-11
- */
 public class AvatarMQConsumer extends MessageProcessor implements AvatarMQAction {
 
     private ProducerMessageHook hook;

@@ -1,11 +1,9 @@
-
 package com.xuqian.gs.mq.model;
 
 import java.io.Serializable;
 
 import com.xuqian.gs.mq.msg.Message;
 import org.apache.commons.lang3.builder.EqualsBuilder;
-
 
 public class MessageDispatchTask implements Serializable {
 

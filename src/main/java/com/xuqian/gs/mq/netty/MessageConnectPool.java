@@ -1,6 +1,6 @@
 package com.xuqian.gs.mq.netty;
 
-import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.apache.commons.pool.impl.GenericObjectPool;
 
 import java.io.IOException;
 import java.io.InputStream;

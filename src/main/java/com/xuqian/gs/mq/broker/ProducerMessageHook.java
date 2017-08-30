@@ -1,48 +1,21 @@
-/**
- * Copyright (C) 2016 Newland Group Holding Limited
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.xuqian.gs.mq.broker;
 
+import com.esotericsoftware.kryo.serializers.ClosureSerializer;
+import com.google.common.base.Predicate;
+import com.xuqian.gs.mq.consumer.ConsumerClusters;
+import com.xuqian.gs.mq.core.*;
+import com.xuqian.gs.mq.model.MessageDispatchTask;
+import com.xuqian.gs.mq.msg.Message;
+import com.xuqian.gs.mq.msg.ProducerAckMessage;
 import io.netty.channel.Channel;
+import com.google.common.base.Joiner;
+import org.apache.commons.collections.ClosureUtils;
+import org.apache.commons.collections.functors.AnyPredicate;
+import org.springframework.cglib.core.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.newlandframework.avatarmq.msg.Message;
-import com.newlandframework.avatarmq.msg.ProducerAckMessage;
-import com.newlandframework.avatarmq.core.SemaphoreCache;
-import com.newlandframework.avatarmq.consumer.ConsumerClusters;
-import com.newlandframework.avatarmq.consumer.ConsumerContext;
-import com.newlandframework.avatarmq.core.AckMessageCache;
-import com.newlandframework.avatarmq.core.AckTaskQueue;
-import com.newlandframework.avatarmq.core.MessageTaskQueue;
-import com.newlandframework.avatarmq.core.MessageSystemConfig;
-import com.newlandframework.avatarmq.model.MessageDispatchTask;
-import com.newlandframework.avatarmq.core.ChannelCache;
-import org.apache.commons.collections.Closure;
-import org.apache.commons.collections.Predicate;
-import org.apache.commons.collections.ClosureUtils;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.functors.AnyPredicate;
-import com.google.common.base.Joiner;
 
-/**
- * @filename:ProducerMessageHook.java
- * @description:ProducerMessageHook功能模块
- * @author tangjie<https://github.com/tang-jie>
- * @blog http://www.cnblogs.com/jietang/
- * @since 2016-8-11
- */
 public class ProducerMessageHook implements ProducerMessageListener {
 
     private List<ConsumerClusters> clustersSet = new ArrayList<ConsumerClusters>();
@@ -58,7 +31,7 @@ public class ProducerMessageHook implements ProducerMessageListener {
 
         AnyPredicate any = new AnyPredicate(new Predicate[]{focusAllPredicate});
 
-        Closure joinClosure = new Closure() {
+        ClosureSerializer.Closure joinClosure = new ClosureSerializer.Closure() {
             public void execute(Object input) {
                 if (input instanceof ConsumerClusters) {
                     ConsumerClusters clusters = (ConsumerClusters) input;
@@ -67,12 +40,12 @@ public class ProducerMessageHook implements ProducerMessageListener {
             }
         };
 
-        Closure ignoreClosure = new Closure() {
+        ClosureSerializer.Closure ignoreClosure = new ClosureSerializer.Closure() {
             public void execute(Object input) {
             }
         };
 
-        Closure ifClosure = ClosureUtils.ifClosure(any, joinClosure, ignoreClosure);
+        ClosureSerializer.Closure ifClosure = ClosureUtils.ifClosure(any, joinClosure, ignoreClosure);
 
         CollectionUtils.forAllDo(focusTopicGroup, ifClosure);
     }
